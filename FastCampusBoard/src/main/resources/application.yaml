@@ -1,0 +1,32 @@
+debug: false
+management.endpoint.web.exposure.include: "*"
+
+logging:
+  level:
+    com.fastcampus.projectboard: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+sping:
+  datasource:
+    url: jdbc:mysql://localhost:3306/board
+    username: chando
+    password: thisisTESTPW!#%&
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    defer-datasource-initialization: true
+    hibernate.ddl-auto: create
+    show-wql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.default_batch_fetch_size: 100
+  h2.console.enalbed: false
+  sql.init.mode: always
+
+  data.rest:
+    base-path: /api
+    detection-strategy: annotated
+
+spring:
+  config.activate.on-profile: testdb
+
